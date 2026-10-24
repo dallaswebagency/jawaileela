@@ -122,13 +122,29 @@ header{position:sticky;top:0;z-index:50;background:rgba(20,17,13,.96);backdrop-f
 .contact span{font-family:'Bodoni Moda',serif;font-size:22px;overflow-wrap:anywhere}
 
 /* footer */
-footer{background:var(--ink);color:#d9ccb0;padding:80px 0 0}
-.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;padding-bottom:60px}
-.foot img{height:110px;width:auto;margin-bottom:22px}
+footer{background:var(--ink);color:#d9ccb0;position:relative}
+.fcta{border-bottom:1px solid var(--line);background:linear-gradient(90deg,#2a2217,#1a150f)}
+.fcta .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:56px 0;flex-wrap:wrap}
+.fcta h3{font-size:clamp(28px,3.4vw,44px);color:#fff;max-width:620px}
+.fcta h3 em{font-style:italic;color:var(--gold)}
+.foot{display:grid;grid-template-columns:1.5fr .9fr 1.1fr 1.2fr;gap:56px;padding:76px 0 56px}
+.foot img.fl{height:110px;width:auto;margin-bottom:22px}
 .foot p{max-width:340px;font-size:15.5px}
-.foot h4{font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
-.foot li{list-style:none;margin-bottom:10px;font-size:15.5px;overflow-wrap:anywhere}
+.foot h4{font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600}
+.foot li{list-style:none;margin-bottom:11px;font-size:15.5px;overflow-wrap:anywhere}
+.foot li.t{display:flex;gap:10px;align-items:flex-start}
+.foot li.t::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold);margin-top:10px}
 .foot a:hover{color:var(--gold2)}
+.ci li{display:flex;gap:14px;align-items:flex-start}
+.ci svg{flex:0 0 20px;width:20px;height:20px;margin-top:4px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.soc{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.soc a{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
+.soc a:hover{background:var(--gold);border-color:var(--gold)}
+.soc svg{width:20px;height:20px;fill:var(--gold2);transition:.25s}
+.soc a:hover svg{fill:var(--ink)}
+.fstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding-bottom:60px}
+.fstrip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;opacity:.85;transition:.3s;cursor:zoom-in}
+.fstrip img:hover{opacity:1}
 .bar{border-top:1px solid var(--line);padding:24px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:#a89a7d}
 .bar a{color:var(--gold2)}
 
@@ -149,6 +165,7 @@ footer{background:var(--ink);color:#d9ccb0;padding:80px 0 0}
  .why .pool{aspect-ratio:4/3.4}
  .foot{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
  .foot>div:first-child{grid-column:1/-1}
+ .fstrip{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:760px){
  body{font-size:16.5px}
@@ -168,7 +185,8 @@ footer{background:var(--ink);color:#d9ccb0;padding:80px 0 0}
  .contact a{width:100%}
  .why li{gap:18px;padding:20px 0}
  .foot{grid-template-columns:minmax(0,1fr);gap:40px}
- .foot img{height:90px}
+ .foot img.fl{height:90px}
+ .fcta .wrap{padding:44px 0}.fstrip{gap:6px}
  .bar{flex-direction:column}
 }
 @media (prefers-reduced-motion:reduce){.hero-bg{animation:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -311,10 +329,23 @@ footer{background:var(--ink);color:#d9ccb0;padding:80px 0 0}
 </main>
 
 <footer>
+  <div class="fcta">
+    <div class="wrap">
+      <h3>Ready for your Jawai <em>escape?</em></h3>
+      <a class="btn gold" href="https://wa.me/917878239399?text=Hello%20Jawai%20Leela%20Resort%2C%20I%20would%20like%20to%20check%20room%20availability." target="_blank" rel="noopener">WhatsApp Booking</a>
+    </div>
+  </div>
   <div class="wrap foot">
     <div>
-      <img src="assets/logo.png" alt="Jawai Leela Resort" width="318" height="110" loading="lazy">
+      <img class="fl" src="assets/logo.png" alt="Jawai Leela Resort" width="318" height="110" loading="lazy">
       <p>Your peaceful stay in Jawai, Rajasthan. Comfortable rooms, a swimming pool and access to Jawai leopard safari experiences.</p>
+      <div class="soc">
+        <a href="https://wa.me/917878239399" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.2z"/></svg></a>
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.3 5.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg></a>
+        <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.4 2 10 3.7 10 6v2H7.5v3H10v11h4V11h2.8l.4-3H14z"/></svg></a>
+        <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+        <a href="#" aria-label="Google Maps" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></a>
+      </div>
     </div>
     <div>
       <h4>Explore</h4>
@@ -323,17 +354,30 @@ footer{background:var(--ink);color:#d9ccb0;padding:80px 0 0}
         <li><a href="#safari">Jawai Leopard Safari</a></li>
         <li><a href="#why">Why Jawai Leela</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#plan">Contact</a></li>
       </ul>
     </div>
     <div>
-      <h4>Contact</h4>
+      <h4>Why stay with us</h4>
       <ul>
-        <li><a href="tel:+917878239399">+91 78782 39399</a></li>
-        <li><a href="mailto:jawaileelav@gmail.com">jawaileelav@gmail.com</a></li>
-        <li><a href="https://wa.me/917878239399" target="_blank" rel="noopener">WhatsApp Booking</a></li>
+        <li class="t">Peaceful location in the Jawai region</li>
+        <li class="t">Comfortable accommodation</li>
+        <li class="t">Swimming pool for relaxation</li>
+        <li class="t">Convenient base for wildlife experiences</li>
+        <li class="t">Warm and straightforward hospitality</li>
+      </ul>
+    </div>
+    <div class="ci">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+917878239399">+91 78782 39399</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:jawaileelav@gmail.com">jawaileelav@gmail.com</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Jawai, Rajasthan</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1 1 21 12z"/></svg><a href="https://wa.me/917878239399" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
       </ul>
     </div>
   </div>
+  <div class="wrap fstrip"><img src="https://jawaileela.com/wp-content/uploads/2026/08/exterior1.jpg" alt="Veranda at sunset" loading="lazy" referrerpolicy="no-referrer"><img src="https://jawaileela.com/wp-content/uploads/2026/08/room1.jpg" alt="Room with wooden bed" loading="lazy" referrerpolicy="no-referrer"><img src="https://jawaileela.com/wp-content/uploads/2026/08/pool.jpg" alt="Swimming pool" loading="lazy" referrerpolicy="no-referrer"><img src="https://jawaileela.com/wp-content/uploads/2026/08/exterior4.jpg" alt="Resort in the evening" loading="lazy" referrerpolicy="no-referrer"><img src="https://jawaileela.com/wp-content/uploads/2026/08/room2.jpg" alt="Bed with towel swans" loading="lazy" referrerpolicy="no-referrer"><img src="https://jawaileela.com/wp-content/uploads/2026/08/night.jpg" alt="Resort at night" loading="lazy" referrerpolicy="no-referrer"></div>
   <div class="wrap bar">
     <span>&copy; <span id="yr">2026</span> Jawai Leela Resort. All rights reserved.</span>
     <span>Design by <a href="https://nakulchandra.com" target="_blank" rel="noopener">nakulchandra.com</a></span>
@@ -350,7 +394,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-document.querySelectorAll('.gal img,.rail img').forEach(im=>im.addEventListener('click',()=>{lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on')}));
+document.querySelectorAll('.gal img,.rail img,.fstrip img').forEach(im=>im.addEventListener('click',()=>{lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on')}));
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 </script>
